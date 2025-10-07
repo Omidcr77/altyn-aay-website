@@ -1,0 +1,57 @@
+/* client/src/index.css */
+@import "tailwindcss/tailwind.css";
+
+:root {
+  /* Define colors for the default theme (your current dark theme) */
+  --background: 222 84% 5%;    /* #080f1d */
+  --foreground: 210 40% 98%;   /* #f9fafb */
+  --muted-foreground: 215 20% 65%; /* #9aa5b6 */
+
+  --border: 215 28% 17%;     /* #202a3a */
+  --ring: 215 28% 17%;
+
+  /* Your brand color */
+  --brand: 39 91% 55%;        /* #f39c12 */
+
+  /* Custom Header Variables */
+  --header-bg: 210 40% 98% / 0.05; /* hsla(210, 40%, 98%, 0.05) */
+  --header-bg-scrolled: 210 40% 98% / 0.1;
+  --header-border: 210 40% 98% / 0.1;
+}
+
+/* Moving animations from JSX to CSS */
+@keyframes sweep {
+  0% { transform: translateX(-30%); opacity: 0; }
+  20% { opacity: 0.25; }
+  100% { transform: translateX(130%); opacity: 0; }
+}
+
+@keyframes drift {
+  from { background-position: 0px 0px; }
+  to { background-position: 44px 44px; }
+}
+
+.bg-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.1), transparent);
+  animation: sweep 8s ease-in-out infinite;
+}
+
+body {
+  background-color: hsl(var(--background) / 1);
+  color: hsl(var(--foreground) / 1);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

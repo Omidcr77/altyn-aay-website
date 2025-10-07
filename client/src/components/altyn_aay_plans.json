@@ -1,0 +1,26 @@
+{
+  "en": {
+    "unlimited": [
+      { "name": "512 KB", "price": "750", "features": ["Unlimited Data", "Basic Browsing"] },
+      { "name": "1 MB", "price": "1300", "features": ["Unlimited Data", "SD Streaming"], "popular": true },
+      { "name": "2 MB", "price": "1800", "features": ["Unlimited Data", "HD Streaming"] }
+    ],
+    "limited": [
+      { "name": "30 GB", "price": "900", "features": ["High-Speed", "Light Use"] },
+      { "name": "60 GB", "price": "1400", "features": ["High-Speed", "Streaming"], "popular": true },
+      { "name": "100 GB", "price": "1600", "features": ["High-Speed", "Gaming"] }
+    ]
+  },
+  "dr": {
+    "unlimited": [
+      { "name": "۵۱۲ کیلوبایت", "price": "۷۵۰", "features": ["حجم نامحدود", "وبگردی ساده"] },
+      { "name": "۱ مگابایت", "price": "۱۳۰۰", "features": ["حجم نامحدود", "پخش SD"], "popular": true },
+      { "name": "۲ مگابایت", "price": "۱۸۰۰", "features": ["حجم نامحدود", "پخش HD"] }
+    ],
+    "limited": [
+      { "name": "۳۰ گیگابایت", "price": "۹۰۰", "features": ["سرعت بالا", "استفاده سبک"] },
+      { "name": "۶۰ گیگابایت", "price": "۱۴۰۰", "features": ["سرعت بالا", "پخش ویدیو"], "popular": true },
+      { "name": "۱۰۰ گیگابایت", "price": "۱۶۰۰", "features": ["سرعت بالا", "بازی"] }
+    ]
+  }
+}
