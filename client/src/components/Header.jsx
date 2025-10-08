@@ -46,6 +46,13 @@ const Header = () => {
     document.documentElement.dir = lang === "dr" ? "rtl" : "ltr";
   }, [i18n.language]);
 
+  // Initialize theme from localStorage on mount so components render correctly
+  React.useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'light') document.documentElement.classList.add('light');
+    else document.documentElement.classList.remove('light');
+  }, []);
+
   const handleNavClick = () => setMobileMenuOpen(false);
 
   return (
@@ -106,6 +113,27 @@ const Header = () => {
                 DR
               </button>
             </div>
+            {/* Theme toggle */}
+            <button
+              type="button"
+              onClick={() => {
+                const next = document.documentElement.classList.toggle('light');
+                localStorage.setItem('theme', next ? 'light' : 'dark');
+                // notify other components to re-read theme
+                try {
+                  window.dispatchEvent(new Event('themeChange'));
+                } catch (e) {
+                  // ignore
+                }
+              }}
+              aria-label={t('toggle_theme', { defaultValue: 'Toggle theme' })}
+              className="ms-3 inline-flex items-center justify-center rounded-full p-1 bg-white/5 border border-white/10 text-foreground/90 hover:bg-white/10 focus:outline-none"
+            >
+              {/* simple icon: sun/moon */}
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+                <path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M12 7a5 5 0 100 10 5 5 0 000-10z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
 
             <a href="#coverage" className="bg-brand text-background font-semibold py-2 px-4 rounded-full hover:bg-brand/90 transition-colors">
               {t("check_availability")}

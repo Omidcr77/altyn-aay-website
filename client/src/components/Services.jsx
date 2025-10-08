@@ -68,20 +68,7 @@ const Services = () => {
         </svg>
       ),
     },
-    {
-      key: "svc_web",
-      title: t("svc_web_title", { defaultValue: "Web & App Development" }),
-      desc: t("svc_web_desc", {
-        defaultValue:
-          "Fast, accessible websites and dashboards using modern stacks—designed for conversion and scale.",
-      }),
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" aria-hidden="true">
-          <path d="M3 5h18v14H3z" stroke="currentColor" strokeWidth="2" />
-          <path d="M3 9h18" stroke="currentColor" strokeWidth="2" />
-        </svg>
-      ),
-    },
+    
     {
       key: "svc_cyber",
       title: t("svc_cyber_title", { defaultValue: "Cybersecurity & Audits" }),
@@ -95,19 +82,7 @@ const Services = () => {
         </svg>
       ),
     },
-    {
-      key: "svc_cloud",
-      title: t("svc_cloud_title", { defaultValue: "Cloud & DevOps" }),
-      desc: t("svc_cloud_desc", {
-        defaultValue:
-          "Migrations, CI/CD, monitoring, and cost optimization across AWS, GCP, Azure, and on-prem hybrids.",
-      }),
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" aria-hidden="true">
-          <path d="M7 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.3 2" stroke="currentColor" strokeWidth="2" />
-        </svg>
-      ),
-    },
+   
     {
       key: "svc_support",
       title: t("svc_support_title", { defaultValue: "Managed IT & Support" }),
@@ -122,27 +97,14 @@ const Services = () => {
         </svg>
       ),
     },
-    {
-      key: "svc_consult",
-      title: t("svc_consult_title", { defaultValue: "IT Consulting & Training" }),
-      desc: t("svc_consult_desc", {
-        defaultValue:
-          "Architecture reviews, cost-benefit roadmaps, and hands-on training for your team.",
-      }),
-      icon: (
-        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" aria-hidden="true">
-          <path d="M12 3v18M3 12h18" stroke="currentColor" strokeWidth="2" />
-        </svg>
-      ),
-    },
-  ];
+      ];
 
   // section header reveal
   const head = useReveal();
 
   return (
     <section id="services" className="relative py-16 sm:py-20 border-t border-white/10">
-      {/* motion-safe keyframes + subtle breathing accent */}
+      {/* motion-safe keyframes + subtle breathing accent */}   
       <style>{`
         @media (prefers-reduced-motion: no-preference){
           @keyframes breathe {

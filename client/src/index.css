@@ -19,6 +19,70 @@
   --header-border: 210 40% 98% / 0.1;
 }
 
+/* light theme variables */
+.light {
+  --background: 210 40% 98%; /* near white */
+  --foreground: 222 10% 8%;   /* near black */
+  --muted-foreground: 210 14% 45%;
+  --border: 210 16% 92%;
+  --ring: 210 16% 92%;
+  --brand: 39 91% 35%;
+  --header-bg: 210 40% 98% / 0.9;
+  --header-bg-scrolled: 210 40% 98% / 0.95;
+  --header-border: 210 40% 98% / 0.95;
+}
+
+/* Light-mode overrides for common Tailwind white utilities used across components.
+   These map the 'white' utilities to use the --foreground (dark) color so elements
+   that were authored with `text-white` or `bg-white/5` behave sensibly in light mode.
+*/
+.light .text-white { color: hsl(var(--foreground) / 1); }
+.light .text-white\/90 { color: hsl(var(--foreground) / 0.9); }
+.light .text-white\/85 { color: hsl(var(--foreground) / 0.85); }
+.light .text-white\/80 { color: hsl(var(--foreground) / 0.8); }
+.light .text-white\/70 { color: hsl(var(--foreground) / 0.7); }
+.light .text-white\/60 { color: hsl(var(--foreground) / 0.6); }
+.light .text-white\/50 { color: hsl(var(--foreground) / 0.5); }
+.light .text-white\/15 { color: hsl(var(--foreground) / 0.15); }
+
+.light .bg-white\/5 { background-color: hsl(var(--foreground) / 0.04); }
+.light .bg-white\/10 { background-color: hsl(var(--foreground) / 0.06); }
+.light .bg-white\/15 { background-color: hsl(var(--foreground) / 0.08); }
+.light .bg-white\/20 { background-color: hsl(var(--foreground) / 0.1); }
+
+.light .border-white\/10 { border-color: hsl(var(--foreground) / 0.1); }
+.light .border-white\/30 { border-color: hsl(var(--foreground) / 0.3); }
+
+.light .bg-surface { background-color: hsl(var(--background) / 1); }
+
+/* gray background used in forms, footers (maps to light surface) */
+.light .bg-gray-900\/60 { background-color: hsl(var(--background) / 0.95); }
+
+/* placeholders and inputs that use placeholder-white/40 */
+.light ::placeholder { color: hsl(var(--foreground) / 0.45); }
+
+/* heuristic override: elements that use an inline rgba background like bg-[rgba(15,26,43,0.7)]
+  are common in footer/header. Make them lighter when in .light mode. */
+.light [class*="bg-[rgba(15,26,43"] { background-color: hsl(var(--background) / 0.98) !important; }
+
+/* Override inline radial-gradient utility classes used in backgrounds (Hero, SiteBackground, globalBackground) */
+.light [class*="bg-[radial-gradient"] {
+  background-image: radial-gradient(1200px 600px at 50% -10%, rgba(243,112,33,0.06), transparent 60%), radial-gradient(900px 500px at 80% 20%, rgba(31,79,161,0.05), transparent 55%), linear-gradient(180deg, rgba(250,250,250,1) 0%, rgba(244,244,245,1) 40%, rgba(238,238,239,1) 100%) !important;
+}
+
+/* Dot-grid and subtle white radial overlays should be faint in light mode */
+.light [class*="radial-gradient(transparent_1px"] {
+  background-image: radial-gradient(transparent 1px, rgba(0,0,0,0.03) 1px) !important;
+  background-size: 22px 22px !important;
+}
+
+/* Make noise overlay blend lighter in light mode */
+.light .mix-blend-overlay {
+  opacity: 0.06 !important;
+  mix-blend-mode: screen !important;
+}
+
+
 /* Moving animations from JSX to CSS */
 @keyframes sweep {
   0% { transform: translateX(-30%); opacity: 0; }
